@@ -4,7 +4,7 @@ import {
   IsValidDocument,
   IsValidPassword,
   IsValidTellphone,
-} from '../../validations';
+} from '../../../validations';
 import { IsSingleDocument } from '../validations/isSingleDocument.validator';
 import { IsSingleEmail } from '../validations/isSingleEmail.validator';
 

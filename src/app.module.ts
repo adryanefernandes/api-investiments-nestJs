@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { CredentialsModule } from './credentials/credentials.module';
+import { CredentialsModule } from './v1/credentials/credentials.module';
 import {
   CellphoneValidator,
   DocumentValidator,
