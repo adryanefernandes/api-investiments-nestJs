@@ -5,6 +5,7 @@ import {
   ValidatorConstraint,
   ValidatorConstraintInterface,
 } from 'class-validator';
+import { UserEntity } from 'src/database/entities/user.entity';
 import { UserRepository } from 'src/database/repositories/user.repository';
 
 @Injectable()
@@ -15,7 +16,9 @@ export class IsSingleEmailValidator implements ValidatorConstraintInterface {
   async validate(value: any): Promise<boolean> {
     if (!value) return true;
 
-    const userWithSameEmail = await this.userRepository.searchByEmail(value);
+    const userWithSameEmail: UserEntity =
+      await this.userRepository.searchByEmail(value);
+
     return !userWithSameEmail;
   }
 }

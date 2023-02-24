@@ -16,16 +16,14 @@ export class UserRepository {
   }
 
   async list(): Promise<any> {
-    return this.users;
+    return await this.userRepository.find();
   }
 
   async searchByEmail(email: string): Promise<any> {
-    const user = this.users.find((u) => u.email === email);
-    return user;
+    return this.userRepository.findOne({ where: { email } });
   }
 
   async searchByDocument(document: string): Promise<any> {
-    const user = this.users.find((u) => u.document === document);
-    return user;
+    return await this.userRepository.findOne({ where: { document } });
   }
 }

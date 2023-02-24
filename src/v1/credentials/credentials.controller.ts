@@ -16,6 +16,7 @@ export class CredentialsController {
     userEntity.email = data.email;
     userEntity.cellphone = data.cellphone;
     userEntity.tellphone = data.tellphone;
+
     // userEntity.password = data.password;
 
     await this.userRepository.save(userEntity);

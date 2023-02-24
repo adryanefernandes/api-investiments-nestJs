@@ -5,6 +5,7 @@ import {
   ValidatorConstraint,
   ValidatorConstraintInterface,
 } from 'class-validator';
+import { UserEntity } from 'src/database/entities/user.entity';
 import { UserRepository } from 'src/database/repositories/user.repository';
 
 @Injectable()
@@ -15,9 +16,9 @@ export class IsSingleDocumentValidator implements ValidatorConstraintInterface {
   async validate(value: any): Promise<boolean> {
     if (!value) return true;
 
-    const userWithSameDocument = await this.userRepository.searchByDocument(
-      value,
-    );
+    const userWithSameDocument: UserEntity =
+      await this.userRepository.searchByDocument(value);
+
     return !userWithSameDocument;
   }
 }

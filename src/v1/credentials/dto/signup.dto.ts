@@ -4,6 +4,7 @@ import {
   IsValidDocument,
   IsValidPassword,
   IsValidTellphone,
+  Match,
 } from '../../../validations';
 import { IsSingleDocument } from '../validations/isSingleDocument.validator';
 import { IsSingleEmail } from '../validations/isSingleEmail.validator';
@@ -35,7 +36,10 @@ export class SignupDTO {
   @IsValidPassword({ message: 'A senha está fora dos padrões.' })
   password: string;
 
-  // TODO - como fazer??
+  @IsNotEmpty({ message: 'A confirmação de senha não pode estar vazia.' })
+  @Match('password', {
+    message: 'A confirmação de senha deve ser igual a senha.',
+  })
   confirm_password: string;
 
   @IsValidCellphone({ message: 'O celular informado não é válido.' })

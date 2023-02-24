@@ -1,5 +1,6 @@
-import path from 'path';
 import { DataSource } from 'typeorm';
+import { UserEntity } from './entities/user.entity';
+import { default1677265819491 } from './migrations/1677265819491-default';
 
 export default new DataSource({
   type: 'mysql',
@@ -8,7 +9,7 @@ export default new DataSource({
   username: 'root',
   password: '123456',
   database: 'investiments',
-  entities: [`${__dirname}/../../**/**.entity{.ts,.js}`],
-  migrations: ['dist/migrations/*{.ts,.js}'],
+  entities: [UserEntity], //TODO - resolver isso aqui
+  migrations: [default1677265819491],
   migrationsTableName: 'Migrations',
 });

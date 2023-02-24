@@ -5,6 +5,7 @@ import {
   DocumentValidator,
   PasswordValidator,
   TellphoneValidator,
+  MatchValidator,
 } from './validations';
 
 @Module({
@@ -14,6 +15,7 @@ import {
     CellphoneValidator,
     PasswordValidator,
     TellphoneValidator,
+    MatchValidator,
   ],
 })
 export class AppModule {}
