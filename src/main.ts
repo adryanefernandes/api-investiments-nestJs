@@ -3,7 +3,6 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { useContainer } from 'class-validator';
 import { AppModule } from './app.module';
-import { AppDataSource } from './database/dataSource';
 
 const SERVER_PORT = process.env.SERVER_PORT || 3000;
 
