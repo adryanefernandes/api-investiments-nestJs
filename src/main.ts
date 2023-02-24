@@ -8,9 +8,6 @@ import { AppDataSource } from './database/dataSource';
 const SERVER_PORT = process.env.SERVER_PORT || 3000;
 
 async function bootstrap() {
-  // Inicia conexão com o banco de dados
-  await AppDataSource.initialize();
-
   const app = await NestFactory.create(AppModule);
 
   // To use validation pipes
