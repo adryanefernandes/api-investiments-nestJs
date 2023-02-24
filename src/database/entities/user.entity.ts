@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { Timestamp } from './extendigs/timestamp';
 
 @Entity('users')
-export class User {
+export class UserEntity {
   @PrimaryGeneratedColumn({ name: 'id_user' })
   id: number;
 
