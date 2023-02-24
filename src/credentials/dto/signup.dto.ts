@@ -5,6 +5,7 @@ import {
   IsValidPassword,
   IsValidTellphone,
 } from '../../validations';
+import { IsSingleDocument } from '../validations/isSingleDocument.validator';
 import { IsSingleEmail } from '../validations/isSingleEmail.validator';
 
 export class SignupDTO {
@@ -22,9 +23,10 @@ export class SignupDTO {
 
   @IsNotEmpty({ message: 'O documento não pode estar vazio.' })
   @IsValidDocument({ message: 'O documento informado está inválido.' })
-  // TODO - verificar se já foi cadastrado
+  @IsSingleDocument({ message: 'Este documento já foi cadastrado.' })
   document: string;
 
+  @IsNotEmpty({ message: 'O e-mail não pode estar vazio.' })
   @IsEmail(undefined, { message: 'O e-mail informado não é válido.' })
   @IsSingleEmail({ message: 'Este e-mail já foi cadastrado.' })
   email: string;

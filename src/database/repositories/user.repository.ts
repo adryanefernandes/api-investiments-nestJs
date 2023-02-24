@@ -16,4 +16,9 @@ export class UserRepository {
     const user = this.users.find((u) => u.email === email);
     return user;
   }
+
+  async searchByDocument(document: string): Promise<any> {
+    const user = this.users.find((u) => u.document === document);
+    return user;
+  }
 }
