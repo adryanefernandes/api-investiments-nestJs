@@ -9,26 +9,26 @@ import { onlyNumbers } from 'src/utils';
 
 @Injectable()
 @ValidatorConstraint()
-export class CellphoneValidator implements ValidatorConstraintInterface {
+export class TellphoneValidator implements ValidatorConstraintInterface {
   validate(value: any): boolean {
-    if (!value) return true; // Is optional
+    if (!value) return true; // É opcional
 
     const regex =
-      /^([14689][0-9]|2[12478]|3([1-5]|[7-8])|5([13-5])|7[193-7])[0-9]{9}$/;
+      /^([14689][0-9]|2[12478]|3([1-5]|[7-8])|5([13-5])|7[193-7])[0-9]{8}$/;
 
-    const cellphone = onlyNumbers(value);
-    return regex.test(cellphone);
+    const tellphone = onlyNumbers(value);
+    return regex.test(tellphone);
   }
 }
 
-export const IsValidCellphone = (options: ValidationOptions) => {
+export const IsValidTellphone = (options: ValidationOptions) => {
   return (object: object, property: string) => {
     registerDecorator({
       target: object.constructor,
       propertyName: property,
       options: options,
       constraints: [],
-      validator: CellphoneValidator,
+      validator: TellphoneValidator,
     });
   };
 };

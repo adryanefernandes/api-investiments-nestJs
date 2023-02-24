@@ -12,6 +12,8 @@ import { onlyNumbers } from 'src/utils';
 @ValidatorConstraint()
 export class DocumentValidator implements ValidatorConstraintInterface {
   validate(value: any): boolean {
+    if (!value) return true; // Se estiver vazio é outra validação
+
     const document = onlyNumbers(value);
     if (!document) return false;
 

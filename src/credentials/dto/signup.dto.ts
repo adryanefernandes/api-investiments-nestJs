@@ -1,6 +1,10 @@
 import { IsEmail, IsNotEmpty, Length } from 'class-validator';
-import { IsValidCellphone } from '../validations/cellphone.validator';
-import { IsValidDocument } from '../validations/document.validator';
+import {
+  IsValidCellphone,
+  IsValidDocument,
+  IsValidPassword,
+  IsValidTellphone,
+} from '../../validations';
 
 export class SignupDTO {
   @IsNotEmpty({ message: 'O nome é obrigatório.' })
@@ -23,8 +27,8 @@ export class SignupDTO {
   // TODO - Provider verificar se email existe
   email: string;
 
-  // TODO - Provider validador de senha
   @IsNotEmpty({ message: 'A senha não pode estar vazia.' })
+  @IsValidPassword({ message: 'A senha está fora dos padrões.' })
   password: string;
 
   // TODO - como fazer??
@@ -33,6 +37,6 @@ export class SignupDTO {
   @IsValidCellphone({ message: 'O celular informado não é válido.' })
   cellphone?: string;
 
-  // TODO - Provider validador de telefone
+  @IsValidTellphone({ message: 'O telefone informado não é válido.' })
   tellphone?: string;
 }
